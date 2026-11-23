@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeatBoard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<div class="app">
+
+
+    <aside class="sidebar">
+        <a href="#" class="logo">BeatBoard</a>
+
+        <nav class="navigation">
+            <button class="nav-link active" data-page="home">Home</button>
+            <button class="nav-link" data-page="projects">Projects</button>
+            <button class="nav-link" data-page="ideas">Ideas</button>
+            <button class="nav-link" data-page="favorites">Favorites</button>
+        </nav>
+
+        <div class="user-profile">
+            <div class="avatar">S</div>
+            <div>
+                <strong id="username">Snowy</strong>
+                <span>Producer</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <header class="topbar">
+            <div>
+                <h1 id="page-title">Good evening, Snowy</h1>
+                <p>Your ideas. Your sound.</p>
+            </div>
+
+            <div class="top-actions">
+                <input
+                    type="search"
+                    id="search-input"
+                    placeholder="Search beats..."
+                >
+
+                <button class="primary-button" id="new-project-button">
+                    + New Beat
+                </button>
+            </div>
+        </header>
+
+        <!-- HOME -->
+        <section class="page active" id="home-page">
+
+            <div class="overview">
+                <div>
+                    <h2>Projects</h2>
+                    <p id="project-count">0 projects</p>
+                </div>
+
+                <div class="statistics">
+                    <div class="stat">
+                        <strong id="ideas-count">0</strong>
+                        <span>Ideas</span>
+                    </div>
+
+                    <div class="stat">
+                        <strong id="progress-count">0</strong>
+                        <span>In Progress</span>
+                    </div>
+
+                    <div class="stat">
+                        <strong id="finished-count">0</strong>
+                        <span>Finished</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filters">
+                <span>Filter by</span>
+
+                <button class="filter active" data-filter="All">All</button>
+                <button class="filter" data-filter="Idea">Idea</button>
+                <button class="filter" data-filter="In Progress">In Progress</button>
+                <button class="filter" data-filter="Finished">Finished</button>
+            </div>
+
+            <div class="project-grid" id="project-grid"></div>
+
+            <section class="activity-section">
+                <h2>Recent activity</h2>
+                <div id="activity-list"></div>
+            </section>
+
+        </section>
+
+        <!-- PROJECTS -->
+        <section class="page" id="projects-page">
+            <div class="section-heading">
+                <h2>All projects</h2>
+                <button class="primary-button" id="new-project-button-2">
+                    + New Beat
+                </button>
+            </div>
+
+            <div class="project-grid" id="all-projects-grid"></div>
+        </section>
+
+        <!-- IDEAS -->
+        <section class="page" id="ideas-page">
+            <h2>Ideas</h2>
+
+            <form id="idea-form" class="idea-form">
+                <input
+                    type="text"
+                    id="idea-input"
+                    placeholder="Write your musical idea..."
+                    required
+                >
+                <button class="primary-button">Add idea</button>
+            </form>
+
+            <div id="ideas-list"></div>
+        </section>
+
+        <!-- FAVORITES -->
+        <section class="page" id="favorites-page">
+            <h2>Favorites</h2>
+            <div class="project-grid" id="favorites-grid"></div>
+        </section>
+
+    </main>
+</div>
+
+<!-- NEW PROJECT MODAL -->
+<div class="modal-overlay" id="project-modal">
+    <form class="modal" id="project-form">
+
+        <button type="button" class="close-modal" id="close-modal">
+            ×
+        </button>
+
+        <h2>Create a beat</h2>
+
+        <label>Beat name</label>
+        <input id="beat-name" type="text" placeholder="DARKNESS" required>
+
+        <label>BPM</label>
+        <input id="beat-bpm" type="number" min="40" max="240" value="145" required>
+
+        <label>Key</label>
+        <select id="beat-key">
+            <option>D# minor</option>
+            <option>F minor</option>
+            <option>C minor</option>
+            <option>A minor</option>
+            <option>G minor</option>
+        </select>
+
+        <label>Status</label>
+        <select id="beat-status">
+            <option>Idea</option>
+            <option>In Progress</option>
+            <option>Finished</option>
+        </select>
+
+        <button class="primary-button create-button" type="submit">
+            Create project
+        </button>
+
+    </form>
+</div>
+
+</body>
+</html>
